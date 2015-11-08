@@ -1,0 +1,20 @@
+apply plugin: "cpp"
+
+model {
+    components {
+        main(NativeExecutableSpec) {
+            sources {
+                cpp {
+                    source {
+                        srcDirs "."
+                        include "*.cpp"
+                    }
+                }
+            }
+           binaries.all {
+               lib project: ':child1', library: 'child1', linkage: 'static'
+           }
+        }
+    }
+}
+

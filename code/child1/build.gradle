@@ -1,0 +1,23 @@
+apply plugin: "cpp"
+
+model {
+    components {
+        child1(NativeLibrarySpec) {
+            sources {
+                cpp {
+                    source {
+                        srcDirs "src"
+                        include "*.cpp"
+                    }
+                   exportedHeaders {
+                     srcDirs "include"
+                   }
+                }
+            }
+            binaries.all {
+              cppCompiler.macros.put("COPYRIGHT",'"Copyright 3243 The Doctor"')
+           }
+        }
+    }
+}
+
