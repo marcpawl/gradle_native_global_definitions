@@ -1,20 +1,31 @@
 apply plugin: "cpp"
 
-model {
+allprojects {
+  model {
     components {
-        main(NativeExecutableSpec) {
-            sources {
-                cpp {
-                    source {
-                        srcDirs "."
-                        include "*.cpp"
-                    }
-                }
-            }
-           binaries.all {
-               lib project: ':child1', library: 'child1', linkage: 'static'
-           }
+       binaries.all {
+         cppCompiler.macros.put("COPYRIGHT",'"Copyright 3243 The Doctor"')
+       }
+     }
+  }
+}
+
+
+
+
+model {
+  main(NativeExecutableSpec) {
+    sources {
+      cpp {
+        source {
+          srcDirs "."
+          include "*.cpp"
         }
+      }
     }
+    binaries.all {
+      lib project: ':child1', library: 'child1', linkage: 'static'
+    }
+  }
 }
 
