@@ -8,8 +8,9 @@ RUN apt-get -y update && apt-get install -y \
   vim \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
+ARG VERSION
 RUN  \
-    curl -O https://downloads.gradle.org/distributions/gradle-2.8-bin.zip \
-    && unzip gradle-2.8-bin.zip && rm gradle-2.8-bin.zip
+    curl -O https://downloads.gradle.org/distributions/gradle-${VERSION}-bin.zip \
+    && unzip gradle-${VERSION}-bin.zip && rm gradle-${VERSION}-bin.zip
 COPY code /code
 RUN /code/build.sh
