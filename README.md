@@ -7,9 +7,9 @@ Trick is to use allprojects in the root.
 
 To run:
 
-  docker build --build-arg VERSION=2.8  -t test .
+  docker build --build-arg VERSION=4.8  -t test .
 
-where 2.8 is the version of gradle you want to test.
+where 4.8 is the version of gradle you want to test.
 
-This technique broke with gradle 2.9
+This technique was changed starting with gradle 2.9.
 

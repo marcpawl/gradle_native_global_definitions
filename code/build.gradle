@@ -2,8 +2,8 @@ apply plugin: "cpp"
 
 allprojects {
   model {
-    components {
-       binaries.all {
+     binaries {
+       all {
          cppCompiler.macros.put("COPYRIGHT",'"Copyright 3243 The Doctor"')
        }
      }
